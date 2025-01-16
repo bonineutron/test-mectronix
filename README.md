@@ -72,12 +72,12 @@ npm run start
   │   ├── store.js                     # Store setup
   │   └── features/                    # Redux state related to the Editor
   │
-  ├── App.jsx            # Root component of React
-  └── index.js           # Entry point for the project
+  ├── App.jsx                          # Root component of React
+  └── index.js                         # Entry point for the project
 ```
 
 ## Name conventions
 
-For constants the ideal is named for complete on upper case using the `_` how separator. For example: `NEW_CONSTANT`
+- For constants the ideal is named for complete on upper case using the `_` how separator. For example: `NEW_CONSTANT`
 
-And for the functions and variables we are using camel case and we try to be the more descriptive posible. For example `isContentActive`
+- And for the functions and variables we are using camel case and we try to be the more descriptive posible. For example `isContentActive`
