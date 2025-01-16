@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 
-import { customApp } from './src/shared/constants';
+import { CUSTOM_APP } from './src/shared/constants';
 
 export default {
    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
    theme: {
       extend: {
          colors: {
-            'primary-color': customApp.primaryColor,
-            'secondary-color': customApp.secondaryColor,
-            'gray-dark': customApp.grayDark
+            'primary-color': CUSTOM_APP.PRIMARY_COLOR,
+            'secondary-color': CUSTOM_APP.SECONDARY_COLOR,
+            'gray-dark': CUSTOM_APP.GRAY_DARK
          }
       }
    },
