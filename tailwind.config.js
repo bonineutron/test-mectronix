@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import { CUSTOM_APP } from './src/shared/constants';
+import { CUSTOM_APP } from './src/constants';
 
 export default {
    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],

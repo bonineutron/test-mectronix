@@ -19,7 +19,8 @@ The repository has two development environments, one for staging and another for
 This will be the content of the .env file:
 
 ```
-VITE_API_URL=""
+VITE_API_URL=""                         # Api url
+VITE_SECRET_KEY=""                      # Key to use crypto-js
 ```
 
 ## Installation
@@ -53,7 +54,7 @@ npm run start
   ├── images/
   ├── fonts/
   |
-/src/shared
+/src
   ├── components/                      # Reusable components (buttons, inputs, cards, etc.)
   │   └── Button/
   │       ├── Button.jsx
