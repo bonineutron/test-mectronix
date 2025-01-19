@@ -1,14 +1,23 @@
-import { BrowserRouter } from 'react-router';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import authService from './services/endpoints/auth/auth.service';
+import apiService from './services/api.service';
+import { useDispatch } from 'react-redux';
+import { Layout } from './components';
 import { Router } from './router';
+import { useEffect } from 'react';
 
 export default function App() {
+   // Configuration
+   const dispatch = useDispatch();
+
+   // Effects
+   useEffect(() => {
+      apiService.setHooks(dispatch);
+      authService.setHooks(dispatch);
+   }, []);
+
    return (
-      <Provider store={store}>
-         <BrowserRouter>
-            <Router />
-         </BrowserRouter>
-      </Provider>
+      <Layout>
+         <Router />
+      </Layout>
    );
 }

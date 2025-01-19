@@ -5,9 +5,9 @@ import { getLocalStorage } from '@/utils';
 const userLocalStorage: IUserApp | null = getLocalStorage<IUserApp>('user');
 
 const userVoid: IUserApp = {
-   accessToken: '',
-   email: '',
-   name: ''
+   id: null,
+   userName: '',
+   email: ''
 };
 
 const initialState: IUserApp = userLocalStorage ?? userVoid;
@@ -17,14 +17,14 @@ export const userSlice = createSlice({
    initialState,
    reducers: {
       updateUser: (state, action: PayloadAction<IUserApp>) => {
-         state.accessToken = action.payload.accessToken;
+         state.id = action.payload.id;
+         state.userName = action.payload.userName;
          state.email = action.payload.email;
-         state.name = action.payload.name;
       },
       removeUser: (state) => {
-         state.accessToken = '';
+         state.id = null;
+         state.userName = '';
          state.email = '';
-         state.name = '';
       }
    }
 });

@@ -1,5 +1,5 @@
 export interface IUserApp {
-   accessToken: string;
+   id: number | null;
    email: string;
-   name: string;
+   userName: string;
 }
