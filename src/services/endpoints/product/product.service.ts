@@ -35,6 +35,12 @@ class productService {
 
       const storedProductsLS = getLocalStorage<string>('products');
 
+      if (!storedProductsLS) {
+         setLocalStorage('products', JSON.stringify(response.data));
+
+         return response.data;
+      }
+
       const storedProducts: IResponseGetAllProducts[] = storedProductsLS ? JSON.parse(storedProductsLS) : [];
 
       const apiProducts: IResponseGetAllProducts[] = (response.data || []).filter((apiProduct) =>
@@ -44,7 +50,7 @@ class productService {
       const mergedProducts = storedProducts.map((localProduct) => {
          const apiProduct = apiProducts.find((product) => product.id === localProduct.id);
 
-         return apiProduct ? { ...localProduct, ...apiProduct } : localProduct;
+         return apiProduct ? { ...localProduct } : localProduct;
       });
 
       setLocalStorage('products', JSON.stringify(mergedProducts));
