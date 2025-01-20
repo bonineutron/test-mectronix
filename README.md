@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# Test Mectronix - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Environment Variables
 
-Currently, two official plugins are available:
+The repository has two development environments, one for staging and another for production. An independent file should be created for each environment in the following way:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##### staging
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-   languageOptions: {
-      // other options...
-      parserOptions: {
-         project: ['./tsconfig.node.json', './tsconfig.app.json'],
-         tsconfigRootDir: import.meta.dirname
-      }
-   }
-});
+```
+.env.staging
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+##### production
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-   // Set the react version
-   settings: { react: { version: '18.3' } },
-   plugins: {
-      // Add the react plugin
-      react
-   },
-   rules: {
-      // other rules...
-      // Enable its recommended rules
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules
-   }
-});
 ```
+.env.production
+```
+
+This will be the content of the .env file:
+
+```
+VITE_API_URL=""                         # Api url
+VITE_SECRET_KEY=""                      # Key to use crypto-js
+```
+
+## Installation
+
+install dependencies, preferably with npm:
+
+```
+npm i
+```
+
+## Start
+
+The .env files will be used to initialize their respective environment using the following commands:
+
+##### staging
+
+```
+npm run dev
+```
+
+##### production
+
+```
+npm run start
+```
+
+## Folder structure
+
+```
+/public                                # Static resources like images, fonts
+  ├── images/
+  ├── fonts/
+  |
+/src
+  ├── components/                      # Reusable components (buttons, inputs, cards, etc.)
+  │   └── Button/
+  │       ├── Button.jsx
+  │       ├── Button.module.scss
+  │       └── index.js                 # Entry file for export the component
+  │
+  ├── hooks/                           # Custom and reusable hooks
+  │   ├── useFetch.js
+  │   └── index.js                     # Index file for export de hooks
+  │
+  ├── services/                        # API calls and another services
+  │
+  ├── utils/                           # Reusable utility functions (helpers)
+  │
+  ├── redux/                           # Redux for manage the global state
+  │   ├── store.js                     # Store setup
+  │   └── features/                    # Redux state related to the Editor
+  │
+  ├── App.jsx                          # Root component of React
+  └── index.js                         # Entry point for the project
+```
+
+## Name conventions
+
+- For constants the ideal is named for complete on upper case using the `_` how separator. For example: `NEW_CONSTANT`
+
+- And for the functions and variables we are using camel case and we try to be the more descriptive posible. For example `isContentActive`
