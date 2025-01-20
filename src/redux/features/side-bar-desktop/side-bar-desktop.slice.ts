@@ -6,7 +6,7 @@ export interface ISideBarDesktopSlice {
 }
 
 const initialState: ISideBarDesktopSlice = {
-   openSideBarDesktop: false,
+   openSideBarDesktop: true,
    isHovered: false
 };
 

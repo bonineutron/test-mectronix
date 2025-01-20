@@ -19,7 +19,7 @@ export function InputPassword({ value, label, id, onChange, onBlur, error, error
    const [showPassword, setShowPassword] = useState(false);
 
    return (
-      <div className='relative w-full h-[70px]'>
+      <div className='relative w-full h-[72px]'>
          <ThemeProvider theme={theme}>
             <FormControl variant='outlined' error={error} fullWidth>
                <InputLabel size='small' htmlFor='outlined-adornment-password'>

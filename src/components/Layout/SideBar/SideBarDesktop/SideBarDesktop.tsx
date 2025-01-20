@@ -27,7 +27,7 @@ export function SideBarDesktop(): JSX.Element {
                }`}>
                <Link to='/' className='h-full w-fit'>
                   <img
-                     src='https://i0.wp.com/fundes.org/wp-content/uploads/2021/11/Fundes_Latinoamérica-1.png?fit=394%2C116&ssl=1'
+                     src='/logos/google.png'
                      alt='logo-fundes'
                      className={`h-full w-auto ${openSideBarDesktop || isHovered ? '' : 'hidden'}`}
                   />
