@@ -22,12 +22,10 @@ export function Layout({ children }: LayoutProps): JSX.Element {
    // Redux states
    const { id: user } = useSelector((state: RootState) => state.user);
 
-   console.log(user);
-
    // Effects
    useEffect(() => {
       validateNavigateUserSession();
-   }, [user]);
+   }, [user, pathname]);
 
    // Methods
    const validateNavigateUserSession = () => {
@@ -61,7 +59,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
                <TopBar />
 
                <div className='h-full w-full flex flex-col justify-between items-center'>
-                  <div className='h-fit w-full max-w-[1400px] p-3 md:p-6'>{children}</div>
+                  <div className='h-fit w-full max-w-[1200px] p-3 md:p-6'>{children}</div>
 
                   <Footer />
                </div>

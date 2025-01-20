@@ -12,6 +12,7 @@ interface ButtonProps {
    secondary?: boolean;
    icon?: JSX.Element;
    fullWidth?: boolean;
+   error?: boolean;
 }
 
 export function Button({
@@ -23,7 +24,8 @@ export function Button({
    secondary,
    icon,
    disabled,
-   fullWidth
+   fullWidth,
+   error
 }: ButtonProps): React.JSX.Element {
    return (
       <div className={`h-fit w-fit ${disabled ? 'cursor-not-allowed' : ''} ${fullWidth ? 'w-full' : 'w-fit'}`}>
@@ -34,10 +36,8 @@ export function Button({
                variant='contained'
                loading={loading}
                disabled={disabled}
-               className={`!h-[40px] !text-[16px] !shadow-none !normal-case !rounded-md !border-solid !border-[1px] w-full ${
-                  className ?? ''
-               } ${secondary ? '!bg-secondary-color' : ''}
-      `}>
+               color={error ? 'error' : secondary ? 'secondary' : 'primary'}
+               className={`!h-[40px] !text-[16px] !shadow-none !normal-case !rounded-md !border-solid !border-[1px] w-full ${className ?? ''}`}>
                {icon && <p className='min-w-[20px] text-[20px] mr-1'>{icon}</p>}
 
                <span>{children}</span>

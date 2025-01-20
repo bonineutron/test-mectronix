@@ -23,7 +23,8 @@ export default tseslint.config(
          '@typescript-eslint/no-explicit-any': 'error',
          '@typescript-eslint/no-unused-vars': 'error',
          'react-hooks/exhaustive-deps': 'off',
-         'react-hooks/rules-of-hooks': 'off'
+         'react-hooks/rules-of-hooks': 'off',
+         'no-console': ['error', { allow: ['warn', 'error'] }]
       }
    }
 );

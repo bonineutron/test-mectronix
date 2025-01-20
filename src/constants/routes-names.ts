@@ -1,4 +1,6 @@
 export const ROUTE_NAMES = {
    HOME: '/',
-   AUTH: '/auth'
+   AUTH: '/auth',
+   PRODUCTS: '/products',
+   SHOPPING: '/shopping'
 };

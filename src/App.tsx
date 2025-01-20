@@ -1,9 +1,8 @@
-import authService from './services/endpoints/auth/auth.service';
-import apiService from './services/api.service';
 import { useDispatch } from 'react-redux';
 import { Layout } from './components';
 import { Router } from './router';
 import { useEffect } from 'react';
+import { setServiceHooks } from './services/api.utility';
 
 export default function App() {
    // Configuration
@@ -11,8 +10,7 @@ export default function App() {
 
    // Effects
    useEffect(() => {
-      apiService.setHooks(dispatch);
-      authService.setHooks(dispatch);
+      setServiceHooks(dispatch);
    }, []);
 
    return (

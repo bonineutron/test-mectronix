@@ -7,7 +7,7 @@ interface InputProps {
    name?: string;
    type: string;
    label?: string;
-   value: string | number;
+   value: string;
    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
    onBlur?: () => void;
    error?: boolean;
