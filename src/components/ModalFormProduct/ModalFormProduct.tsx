@@ -26,7 +26,8 @@ export function ModalFormProduct({ open, setOpen, product, getProducts }: IModal
       price: { value: null },
       description: { value: '' },
       category: { value: '' },
-      image: { value: '' }
+      image: { value: '' },
+      count: { value: null }
    });
 
    const [categories, setCategories] = useState<string[]>([]);
@@ -43,7 +44,8 @@ export function ModalFormProduct({ open, setOpen, product, getProducts }: IModal
             price: { value: product.price },
             description: { value: product.description },
             category: { value: product.category },
-            image: { value: product.image }
+            image: { value: product.image },
+            count: { value: product.count }
          });
       }
    }, [product]);
@@ -136,7 +138,8 @@ export function ModalFormProduct({ open, setOpen, product, getProducts }: IModal
          rating: {
             rate: 0,
             count: 0
-         }
+         },
+         count: formProduct.count.value || 0
       };
 
       productsLS.push(newProduct);
@@ -167,7 +170,8 @@ export function ModalFormProduct({ open, setOpen, product, getProducts }: IModal
                price: Number(formProduct.price.value) || 0,
                description: formProduct.description.value,
                category: formProduct.category.value,
-               image: formProduct.image.value
+               image: formProduct.image.value,
+               count: Number(formProduct.count.value) || 0
             };
          }
          return product;
@@ -188,7 +192,8 @@ export function ModalFormProduct({ open, setOpen, product, getProducts }: IModal
          price: { value: null },
          description: { value: '' },
          category: { value: '' },
-         image: { value: '' }
+         image: { value: '' },
+         count: { value: null }
       });
    };
 
@@ -253,6 +258,20 @@ export function ModalFormProduct({ open, setOpen, product, getProducts }: IModal
                   }}
                   error={formProduct.price.error}
                   errorMessage={formProduct.price.errorMessage}
+                  fullWidth
+               />
+
+               <Input
+                  id='count'
+                  name='count'
+                  type='number'
+                  label='Count'
+                  value={formProduct.count.value !== null ? String(formProduct.count.value) : ''}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                     inputChange<IFormProduct, number>(setFormProduct, 'count', Number(event.target.value));
+                  }}
+                  error={formProduct.count.error}
+                  errorMessage={formProduct.count.errorMessage}
                   fullWidth
                />
 

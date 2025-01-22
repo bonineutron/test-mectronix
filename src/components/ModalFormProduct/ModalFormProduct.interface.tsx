@@ -6,4 +6,5 @@ export interface IFormProduct {
    description: IField<string>;
    category: IField<string>;
    image: IField<string>;
+   count: IField<number | null>;
 }

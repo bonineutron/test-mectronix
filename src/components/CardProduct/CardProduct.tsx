@@ -114,6 +114,12 @@ export const CardProduct = ({ product, getProducts }: ICardProductProps): React.
                <p className='text-[18px]'>{`$${product.price}`}</p>
             </div>
 
+            <div className='flex items-center gap-3 mb-3'>
+               <p className='font-semibold'>Cantidad:</p>
+
+               <p className='text-[18px]'>{`${product.count}`}</p>
+            </div>
+
             <div className='flex justify-between'>
                <div className='flex flex-col gap-1'>
                   <Button onClick={() => setOpenModalEdit(true)} icon={<MdEdit />}>
